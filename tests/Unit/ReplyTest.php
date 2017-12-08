@@ -1,0 +1,22 @@
+<?php
+
+namespace Tests\Unit;
+
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
+class ReplyTest extends TestCase
+{
+    /**
+     *test
+     */
+    use DatabaseMigrations;
+
+    public function test_it_has_an_owner(){
+    	$reply = factory('App\Reply')->create();
+
+    	$this->assertInstanceOf('App\User', $reply->owner);
+    }
+    
+}
